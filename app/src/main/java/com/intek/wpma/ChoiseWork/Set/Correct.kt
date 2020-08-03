@@ -90,7 +90,7 @@ class Correct : BarcodeDataReceiver() {
         label.text = "Корректировка позиции ${CCItem!!.InvCode}"
         val enterCountCorrect: EditText = findViewById(R.id.enterCountCorrect)
         NoQRCode.setOnClickListener {
-            PreviousAction.text = "Введите колво товара без QR-кода"
+            PreviousAction.text = "Введите кол-во товара без QR-кода"
             enterCountCorrect?.setText("")
             enterCountCorrect.visibility = View.VISIBLE
             NoQRCode.isFocusable = false

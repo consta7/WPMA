@@ -133,6 +133,10 @@ class ShowInfo : BarcodeDataReceiver() {
 
         var cvet = Color.rgb(192,192,192)
 
+        /*
+        Диагональ ТСД 4 l.vfq 480x800
+        */
+
         if(dataTable.isNotEmpty()){
 
             for (DR in dataTable){
@@ -143,13 +147,17 @@ class ShowInfo : BarcodeDataReceiver() {
                 val sector = RefSection()
                 sector.FoundID(DR["Сектор"].toString())
                 number.text = sector.Name
-                number.layoutParams = LinearLayout.LayoutParams(80,ViewGroup.LayoutParams.WRAP_CONTENT)
+                //number.width = 1
+                //number.height = ViewGroup.LayoutParams.WRAP_CONTENT
+                number.layoutParams = LinearLayout.LayoutParams(80, ViewGroup.LayoutParams.WRAP_CONTENT)
                 number.gravity = Gravity.CENTER_HORIZONTAL
                 number.textSize = 16F
                 number.setTextColor(-0x1000000)
 
                 val nmest = TextView(this)
                 nmest.text = DR["Мест"]
+                //nmest.width = 1
+                //nmest.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 nmest.layoutParams = LinearLayout.LayoutParams(25, ViewGroup.LayoutParams.WRAP_CONTENT)
                 nmest.gravity = Gravity.CENTER_HORIZONTAL
                 nmest.textSize = 16F
@@ -160,6 +168,8 @@ class ShowInfo : BarcodeDataReceiver() {
                 var employ = RefEmployer()
                 employ.FoundID(DR["Наборщик"].toString())
                 address.text = " " + SS.helper.GetShortFIO(employ.Name)
+                //address.width = 10
+                //address.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 address.layoutParams = LinearLayout.LayoutParams(165,ViewGroup.LayoutParams.WRAP_CONTENT)
                 address.gravity = Gravity.LEFT
                 address.textSize = 16F
@@ -169,6 +179,8 @@ class ShowInfo : BarcodeDataReceiver() {
                 count.text = " " + SS.helper.ShortDate(DR["Дата1"].toString()) + " " +
                         SS.helper.timeToString(DR["Время1"].toString().toInt()) + " - " +
                         SS.helper.timeToString(DR["Время2"].toString().toInt())
+                //count.width = 5
+                //count.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 count.layoutParams = LinearLayout.LayoutParams(180,ViewGroup.LayoutParams.WRAP_CONTENT)
                 count.gravity = Gravity.LEFT
                 count.textSize = 16F
@@ -183,13 +195,13 @@ class ShowInfo : BarcodeDataReceiver() {
                 row1.setBackgroundColor(cvet)
                 row1.addView(linearLayout1)
 
-
-
                 val row2 = TableRow(this)
                 val linearLayout2 = LinearLayout(this)
 
                 val mest = TextView(this)
                 mest.text = " -" + DR["НомерЛиста"]
+                //mest.width = 1
+                //mest.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 mest.layoutParams = LinearLayout.LayoutParams(80,ViewGroup.LayoutParams.WRAP_CONTENT)
                 mest.gravity = Gravity.CENTER
                 mest.textSize = 16F
@@ -197,6 +209,8 @@ class ShowInfo : BarcodeDataReceiver() {
 
                 val kmest = TextView(this)
                 kmest.text = DR["КолМест"]
+                //kmest.width = 1
+                //kmest.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 kmest.layoutParams = LinearLayout.LayoutParams(25, ViewGroup.LayoutParams.WRAP_CONTENT)
                 kmest.gravity = Gravity.CENTER_HORIZONTAL
                 kmest.textSize = 16F
@@ -206,6 +220,8 @@ class ShowInfo : BarcodeDataReceiver() {
                 val code = TextView(this)
                 employ.FoundID(DR["Комплектовщик"].toString())
                 code.text = " " + SS.helper.GetShortFIO(employ.Name)
+                //code.width = 10
+                //code.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 code.layoutParams = LinearLayout.LayoutParams(165,ViewGroup.LayoutParams.WRAP_CONTENT)
                 code.gravity = Gravity.LEFT
                 code.textSize = 16F
@@ -213,6 +229,8 @@ class ShowInfo : BarcodeDataReceiver() {
 
                 val sum = TextView(this)
                 sum.text = " " + SS.helper.ShortDate(DR["Дата2"].toString()) + " " + SS.helper.timeToString(DR["Время3"].toString().toInt())
+                //sum.width = 5
+                //sum.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 sum.layoutParams = LinearLayout.LayoutParams(150,ViewGroup.LayoutParams.WRAP_CONTENT)
                 sum.gravity = Gravity.LEFT
                 sum.textSize = 16F
@@ -220,6 +238,8 @@ class ShowInfo : BarcodeDataReceiver() {
 
                 val nstrok = TextView(this)
                 nstrok.text = DR["КолСтрок"] + " "
+                //nstrok.width = 1
+                //nstrok.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 nstrok.layoutParams = LinearLayout.LayoutParams(30,ViewGroup.LayoutParams.WRAP_CONTENT)
                 nstrok.gravity = Gravity.RIGHT
                 nstrok.textSize = 16F
